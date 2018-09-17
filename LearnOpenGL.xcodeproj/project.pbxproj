@@ -12,7 +12,6 @@
 		BA960C25214F9ED50035965C /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C24214F9ED50035965C /* libGLEW.2.1.0.dylib */; };
 		BA960C27214F9EE50035965C /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C26214F9EE50035965C /* libglfw.3.2.dylib */; };
 		BA960C29214FDE890035965C /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = BA960C28214FDE880035965C /* glad.c */; };
-		BA960C31214FE13D0035965C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA960C30214FE13D0035965C /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,7 +43,6 @@
 		BA960C26214F9EE50035965C /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		BA960C28214FDE880035965C /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		BA960C2E214FE13D0035965C /* testTarget */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testTarget; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA960C30214FE13D0035965C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				BA960C19214F9E060035965C /* LearnOpenGL */,
-				BA960C2F214FE13D0035965C /* testTarget */,
 				BA960C18214F9E060035965C /* Products */,
 				BA960C21214F9EC10035965C /* Frameworks */,
 			);
@@ -104,14 +101,6 @@
 				BA960C22214F9EC10035965C /* OpenGL.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BA960C2F214FE13D0035965C /* testTarget */ = {
-			isa = PBXGroup;
-			children = (
-				BA960C30214FE13D0035965C /* main.cpp */,
-			);
-			path = testTarget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +189,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA960C31214FE13D0035965C /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
