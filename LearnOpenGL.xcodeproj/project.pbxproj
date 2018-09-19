@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA48A4F4215292D80079B6BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA48A4F3215292D80079B6BB /* main.cpp */; };
 		BA960C1B214F9E060035965C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA960C1A214F9E060035965C /* main.cpp */; };
 		BA960C23214F9EC10035965C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C22214F9EC10035965C /* OpenGL.framework */; };
 		BA960C25214F9ED50035965C /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C24214F9ED50035965C /* libGLEW.2.1.0.dylib */; };
@@ -15,6 +16,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		BA48A4EF215292D80079B6BB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		BA960C15214F9E060035965C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -36,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BA48A4F1215292D80079B6BB /* Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Triangle; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA48A4F3215292D80079B6BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BA960C17214F9E060035965C /* LearnOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA960C1A214F9E060035965C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BA960C22214F9EC10035965C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -46,6 +58,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BA48A4EE215292D80079B6BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BA960C14214F9E060035965C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -66,10 +85,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA48A4F2215292D80079B6BB /* Triangle */ = {
+			isa = PBXGroup;
+			children = (
+				BA48A4F3215292D80079B6BB /* main.cpp */,
+			);
+			path = Triangle;
+			sourceTree = "<group>";
+		};
 		BA960C0E214F9E060035965C = {
 			isa = PBXGroup;
 			children = (
 				BA960C19214F9E060035965C /* LearnOpenGL */,
+				BA48A4F2215292D80079B6BB /* Triangle */,
 				BA960C18214F9E060035965C /* Products */,
 				BA960C21214F9EC10035965C /* Frameworks */,
 			);
@@ -80,6 +108,7 @@
 			children = (
 				BA960C17214F9E060035965C /* LearnOpenGL */,
 				BA960C2E214FE13D0035965C /* testTarget */,
+				BA48A4F1215292D80079B6BB /* Triangle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +135,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BA48A4F0215292D80079B6BB /* Triangle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA48A4F7215292D80079B6BB /* Build configuration list for PBXNativeTarget "Triangle" */;
+			buildPhases = (
+				BA48A4ED215292D80079B6BB /* Sources */,
+				BA48A4EE215292D80079B6BB /* Frameworks */,
+				BA48A4EF215292D80079B6BB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Triangle;
+			productName = Triangle;
+			productReference = BA48A4F1215292D80079B6BB /* Triangle */;
+			productType = "com.apple.product-type.tool";
+		};
 		BA960C16214F9E060035965C /* LearnOpenGL */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA960C1E214F9E060035965C /* Build configuration list for PBXNativeTarget "LearnOpenGL" */;
@@ -149,6 +195,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Swallow;
 				TargetAttributes = {
+					BA48A4F0215292D80079B6BB = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 					BA960C16214F9E060035965C = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -171,11 +220,20 @@
 			targets = (
 				BA960C16214F9E060035965C /* LearnOpenGL */,
 				BA960C2D214FE13D0035965C /* testTarget */,
+				BA48A4F0215292D80079B6BB /* Triangle */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BA48A4ED215292D80079B6BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA48A4F4215292D80079B6BB /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BA960C13214F9E060035965C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,6 +253,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		BA48A4F5215292D80079B6BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA48A4F6215292D80079B6BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		BA960C1C214F9E060035965C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -361,6 +435,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BA48A4F7215292D80079B6BB /* Build configuration list for PBXNativeTarget "Triangle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA48A4F5215292D80079B6BB /* Debug */,
+				BA48A4F6215292D80079B6BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BA960C12214F9E060035965C /* Build configuration list for PBXProject "LearnOpenGL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
