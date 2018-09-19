@@ -65,6 +65,7 @@ int main(){
         return -1;
     }
     
+    /*************** 设置顶点数据与缓冲，并配置顶点属性 *************/
     //输入一个顶点，分别代表三角形三个顶点的x轴，y轴与z轴坐标
     float vertices[] = {
         -0.5f, -0.5f, 0.0f,
@@ -72,10 +73,37 @@ int main(){
         0.0f,  0.5f, 0.0f
     };
     
+    unsigned int VBO,VAO;
+    //使用glGenBuffers函数和一个缓冲ID生成一个VBO顶点缓冲对象
+    glGenBuffers(1,&VBO);
+    //使用glGenVertexArrays函数和一个缓冲ID生成一个VAO顶点数组对象
+    glGenVertexArrays(1,&VAO);
     
+    // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
+    //首先绑定VAO
+    glBindVertexArray(VAO);
+    //然后绑定并设置VBO，使用glBindBuffer函数把新创建的缓冲绑定到GL_ARRAY_BUFFER目标上
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    //调用glBufferData函数，它会把之前定义的顶点数据复制到缓冲的内存中
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     
+    //链接顶点属性
+    //下面这个函数的参数依次为顶点属性，顶点属性的大小，数据的类型，是否希望数据被标准化以及步长
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    //启用顶点属性
+    glEnableVertexAttribArray(0);
     
+    // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
+    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
+    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
+    glBindVertexArray(0);
+    /*********************** Over ************************/
    
+    
+    
+    
     //渲染循环(Render Loop)
     while (!glfwWindowShouldClose(window)) {
         
