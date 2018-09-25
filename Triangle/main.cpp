@@ -47,7 +47,7 @@ int main(){
 #endif
     
     //创建一个窗口对象
-    GLFWwindow * window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    GLFWwindow * window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Hello,triangle", NULL, NULL);
     if (window == NULL){
         cout << "Failed to create GLFW window" << endl;
         glfwTerminate();
@@ -86,28 +86,36 @@ int main(){
     
     //2.编译片段着色器
     int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    //glShaderSource函数把要编译的着色器对象作为第一个参数。第二参数指定了传递的源码字符串数量，这里只有一个。
+    //第三个参数是顶点着色器真正的源码，第四个参数我们先设置为NULL
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
-    // check for shader compile errors
+    //下面这段代码用来检测编译是否成功
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
     if (!success)
     {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
     }
-    // link shaders
+    
+    //用glCreateProgram函数创建一个程序
     int shaderProgram = glCreateProgram();
+    //将顶点着色器和片段着色器附加到程序对象上
     glAttachShader(shaderProgram, vertexShader);
     glAttachShader(shaderProgram, fragmentShader);
+    //链接它们
     glLinkProgram(shaderProgram);
-    // check for linking errors
+    //检测链接着色器程序是否失败
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
     if (!success) {
         glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
     }
+    //着色器对象链接完之后就可以删除了
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
+    /*************** over ***************/
+    
     
     /*************** 设置顶点数据与缓冲，并配置顶点属性 *************/
     //输入一个顶点，分别代表三角形三个顶点的x轴，y轴与z轴坐标
@@ -158,6 +166,11 @@ int main(){
         glClearColor(0.2f,0.3f,0.3f,1.0f);
         //glClear函数是一个状态使用函数，它使用当前的状态来用指定颜色清空屏幕
         glClear(GL_COLOR_BUFFER_BIT);
+        
+        //绘制三角形
+        glUseProgram(shaderProgram);
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
         
         //glfwSwapBuffers函数会交换颜色缓冲
         glfwSwapBuffers(window);
