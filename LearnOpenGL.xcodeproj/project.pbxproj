@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA48A4F4215292D80079B6BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA48A4F3215292D80079B6BB /* main.cpp */; };
+		BA4B074E2160988D00A8207B /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4B074D2160988D00A8207B /* test.cpp */; };
 		BA72D355215B5010008B052C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA72D354215B5010008B052C /* main.cpp */; };
 		BA72D359215B502D008B052C /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C24214F9ED50035965C /* libGLEW.2.1.0.dylib */; };
 		BA72D35A215B5044008B052C /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C26214F9EE50035965C /* libglfw.3.2.dylib */; };
@@ -83,6 +84,8 @@
 /* Begin PBXFileReference section */
 		BA48A4F1215292D80079B6BB /* Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Triangle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA48A4F3215292D80079B6BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BA4B074C2160933A00A8207B /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		BA4B074D2160988D00A8207B /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		BA72D352215B500F008B052C /* Shaders */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Shaders; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA72D354215B5010008B052C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BA72D35B215B514D008B052C /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 		BA72D36F215BBB8B008B052C /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				BA4B074C2160933A00A8207B /* awesomeface.png */,
 				BA72D380215BC5DD008B052C /* container.jpg */,
 				BA72D378215BBCB1008B052C /* my_shaders */,
 				BA72D377215BBCB1008B052C /* shader_s.h */,
@@ -205,6 +209,7 @@
 				BA72D370215BBB8B008B052C /* main.cpp */,
 				BA72D37B215BBCBD008B052C /* glad.c */,
 				BA72D37D215BC4BF008B052C /* new_for_stb.cpp */,
+				BA4B074D2160988D00A8207B /* test.cpp */,
 			);
 			path = Textures;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA72D371215BBB8B008B052C /* main.cpp in Sources */,
+				BA4B074E2160988D00A8207B /* test.cpp in Sources */,
 				BA72D37C215BBCBD008B052C /* glad.c in Sources */,
 				BA72D37E215BC4BF008B052C /* new_for_stb.cpp in Sources */,
 			);
