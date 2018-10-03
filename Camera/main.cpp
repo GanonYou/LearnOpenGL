@@ -8,13 +8,29 @@
 
 #include "stb_image.h"
 #include "shader_s.h"
+#include "camera.h"
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+
+glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
+
+Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+bool firstMouse = true;
+float lastX =  SCR_WIDTH / 2.0;
+float lastY =  SCR_HEIGHT / 2.0;
+
+// timing
+float deltaTime = 0.0f;    // time between current frame and last frame
+float lastFrame = 0.0f;
 
 int main()
 {
@@ -24,10 +40,8 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-#ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
-#endif
+
 
     // glfw window creation
     // --------------------
@@ -38,9 +52,14 @@ int main()
         glfwTerminate();
         return -1;
     }
+    
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
+    //第三个参数设为HIDDEN，在processInput函数中再加以处理
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+    
     // glad: load all OpenGL function pointers
     // ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -53,7 +72,7 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     //创建并编译我们的着色器
-    Shader ourShader("/Users/YWY/XcodeProjects/LearnOpenGL/CoordinateSystems/my_shaders/shader_textures.vs", "/Users/YWY/XcodeProjects/LearnOpenGL/CoordinateSystems/my_shaders/shader_textures.fs");
+    Shader ourShader("/Users/YWY/XcodeProjects/LearnOpenGL/Camera/my_shaders/shader_textures.vs", "/Users/YWY/XcodeProjects/LearnOpenGL/Camera/my_shaders/shader_textures.fs");
 
     /*************** 设置顶点数据与缓冲，并配置顶点属性 *************/
     //定义一个36顶点(显然是在局部空间下的坐标)的立方体，包含纹理坐标
@@ -113,10 +132,6 @@ int main()
         glm::vec3( 1.5f,  0.2f, -1.5f),
         glm::vec3(-1.3f,  1.0f, -1.5f)
     };
-    unsigned int indices[] = {
-        0, 1, 3, // first triangle
-        1, 2, 3  // second triangle
-    };
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
@@ -149,7 +164,7 @@ int main()
 
     //加载图像，创建纹理，生成mipmap
     int width, height, nrChannels;
-    std::string path = "/Users/YWY/XcodeProjects/LearnOpenGL/CoordinateSystems/container.jpg";
+    std::string path = "/Users/YWY/XcodeProjects/LearnOpenGL/Camera/container.jpg";
     unsigned char *data = stbi_load(path.c_str(), &width, &height, &nrChannels, 0);
     if (data)
     {
@@ -175,7 +190,7 @@ int main()
 
     //在图像加载时帮助我们翻转y轴，只需要在加载任何图像前加入以下语句即可
     stbi_set_flip_vertically_on_load(true);
-    path = "/Users/YWY/XcodeProjects/LearnOpenGL/CoordinateSystems/pipi.png";
+    path = "/Users/YWY/XcodeProjects/LearnOpenGL/Camera/awesomeface.png";
     data = stbi_load(path.c_str(), &width, &height, &nrChannels, 0);
     if (data)
     {
@@ -195,11 +210,16 @@ int main()
     //渲染循环
     while (!glfwWindowShouldClose(window))
     {
+        //在每一帧中我们计算出新的deltaTime以备后用
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
         //输入
         processInput(window);
 
         //渲染
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.3f, 0.3f, 0.4f, 1.0f);
         //在每次渲染迭代之前清除深度缓冲（否则前一帧的深度信息仍然保存在缓冲中）
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -209,29 +229,14 @@ int main()
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
         
-        //创建变换
-        //定义一个四维的单位矩阵
-        glm::mat4 transform;
-        //再位移，实际运行顺序与程序顺序相反
-        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-        //先旋转
-        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-        //设置Uniform
         ourShader.use();
         
-        //创建变换
-        glm::mat4 view;
-        glm::mat4 projection;
-        //模型矩阵，将坐标从局部坐标映射到世界空间
-        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
-        //观察矩阵，将坐标从世界空间映射到观察(摄像机)空间
-        view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-        //投影矩阵，将坐标从观察空间映射到裁剪空间
-        //函数第一个参数是fov(Field of View),第二个是宽高比，第三和第四个参数设置了平截头体的近和远平面
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //设置多个uniform
-        ourShader.setMat4("view", view);
+        //这里的projection
+        glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         ourShader.setMat4("projection", projection);
+        
+        glm::mat4 view = camera.GetViewMatrix();
+        ourShader.setMat4("view", view);
         
         //渲染容器，并渲染10个
         glBindVertexArray(VAO);
@@ -240,13 +245,8 @@ int main()
             glm::mat4 model;
             model = glm::translate(model, cubePositions[i]);
             float angle = 20.0f * i;
-            
-            if (i % 3 == 0)
-                angle = glfwGetTime() * 25.0f;
-            
             model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
             ourShader.setMat4("model", model);
-            
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
 
@@ -270,10 +270,44 @@ void framebuffer_size_callback(GLFWwindow * window,int width,int height){
 }
 
 void processInput(GLFWwindow * window){
-    //检查用户是否按下了返回键(Esc)（如果没有按下，glfwGetKey将会返回GLFW_RELEASE，按下则为GLFW_PRESS)
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-        glfwSetWindowShouldClose(window, true);
-    }
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    glfwSetWindowShouldClose(window, true);
+    
+    //此行代码用来针对mac必须要移动一次窗口x才开始渲染的问题，初始化鼠标为HIDDEN，只有当键盘输入H时，才会让鼠标ENABLED
+    if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    camera.ProcessKeyboard(FORWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    camera.ProcessKeyboard(BACKWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    camera.ProcessKeyboard(LEFT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    camera.ProcessKeyboard(RIGHT, deltaTime);
 }
 
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    if (firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+    
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+    
+    lastX = xpos;
+    lastY = ypos;
+    
+    camera.ProcessMouseMovement(xoffset, yoffset);
+}
 
+// glfw: whenever the mouse scroll wheel scrolls, this callback is called
+// ----------------------------------------------------------------------
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+    camera.ProcessMouseScroll(yoffset);
+}
