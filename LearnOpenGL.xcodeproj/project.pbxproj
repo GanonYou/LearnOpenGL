@@ -14,6 +14,11 @@
 		BA6B514C216C801F008EDF7E /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C26214F9EE50035965C /* libglfw.3.2.dylib */; };
 		BA6B5157216C807A008EDF7E /* new_for_stb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA6B514F216C807A008EDF7E /* new_for_stb.cpp */; };
 		BA6B5158216C807A008EDF7E /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = BA6B5151216C807A008EDF7E /* glad.c */; };
+		BA6B5160216DDC78008EDF7E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA6B515F216DDC78008EDF7E /* main.cpp */; };
+		BA6B5164216DDC9B008EDF7E /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C24214F9ED50035965C /* libGLEW.2.1.0.dylib */; };
+		BA6B5165216DDCA9008EDF7E /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C26214F9EE50035965C /* libglfw.3.2.dylib */; };
+		BA6B5170216DDD2C008EDF7E /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = BA6B5167216DDD2C008EDF7E /* glad.c */; };
+		BA6B5171216DDD2C008EDF7E /* new_for_stb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA6B5168216DDD2C008EDF7E /* new_for_stb.cpp */; };
 		BA72D355215B5010008B052C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA72D354215B5010008B052C /* main.cpp */; };
 		BA72D359215B502D008B052C /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C24214F9ED50035965C /* libGLEW.2.1.0.dylib */; };
 		BA72D35A215B5044008B052C /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA960C26214F9EE50035965C /* libglfw.3.2.dylib */; };
@@ -74,6 +79,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		BA6B5142216C7FF9008EDF7E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BA6B515B216DDC78008EDF7E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -181,6 +195,17 @@
 		BA6B5154216C807A008EDF7E /* lamp.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.vs; sourceTree = "<group>"; };
 		BA6B5155216C807A008EDF7E /* lamp.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.fs; sourceTree = "<group>"; };
 		BA6B5156216C807A008EDF7E /* colors.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colors.vs; sourceTree = "<group>"; };
+		BA6B515D216DDC78008EDF7E /* Materials */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Materials; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6B515F216DDC78008EDF7E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BA6B5166216DDD2C008EDF7E /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
+		BA6B5167216DDD2C008EDF7E /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		BA6B5168216DDD2C008EDF7E /* new_for_stb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = new_for_stb.cpp; sourceTree = "<group>"; };
+		BA6B5169216DDD2C008EDF7E /* shader_s.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shader_s.h; sourceTree = "<group>"; };
+		BA6B516B216DDD2C008EDF7E /* materials.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = materials.fs; sourceTree = "<group>"; };
+		BA6B516C216DDD2C008EDF7E /* lamp.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.vs; sourceTree = "<group>"; };
+		BA6B516D216DDD2C008EDF7E /* lamp.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.fs; sourceTree = "<group>"; };
+		BA6B516E216DDD2C008EDF7E /* materials.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = materials.vs; sourceTree = "<group>"; };
+		BA6B516F216DDD2C008EDF7E /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		BA72D352215B500F008B052C /* Shaders */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Shaders; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA72D354215B5010008B052C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BA72D35B215B514D008B052C /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
@@ -285,6 +310,15 @@
 			files = (
 				BA6B514C216C801F008EDF7E /* libglfw.3.2.dylib in Frameworks */,
 				BA6B514B216C8012008EDF7E /* libGLEW.2.1.0.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA6B515A216DDC78008EDF7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA6B5165216DDCA9008EDF7E /* libglfw.3.2.dylib in Frameworks */,
+				BA6B5164216DDC9B008EDF7E /* libGLEW.2.1.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +441,31 @@
 			path = my_shaders;
 			sourceTree = "<group>";
 		};
+		BA6B515E216DDC78008EDF7E /* Materials */ = {
+			isa = PBXGroup;
+			children = (
+				BA6B516A216DDD2C008EDF7E /* my_shaders */,
+				BA6B5166216DDD2C008EDF7E /* camera.h */,
+				BA6B5167216DDD2C008EDF7E /* glad.c */,
+				BA6B5168216DDD2C008EDF7E /* new_for_stb.cpp */,
+				BA6B5169216DDD2C008EDF7E /* shader_s.h */,
+				BA6B516F216DDD2C008EDF7E /* stb_image.h */,
+				BA6B515F216DDC78008EDF7E /* main.cpp */,
+			);
+			path = Materials;
+			sourceTree = "<group>";
+		};
+		BA6B516A216DDD2C008EDF7E /* my_shaders */ = {
+			isa = PBXGroup;
+			children = (
+				BA6B516E216DDD2C008EDF7E /* materials.vs */,
+				BA6B516B216DDD2C008EDF7E /* materials.fs */,
+				BA6B516C216DDD2C008EDF7E /* lamp.vs */,
+				BA6B516D216DDD2C008EDF7E /* lamp.fs */,
+			);
+			path = my_shaders;
+			sourceTree = "<group>";
+		};
 		BA72D353215B5010008B052C /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +552,7 @@
 				BAB68DC3216484860097BC77 /* Homework_1 */,
 				BA8D9697216A0B5A00A983DD /* Colors */,
 				BA6B5145216C7FF9008EDF7E /* Diffuse */,
+				BA6B515E216DDC78008EDF7E /* Materials */,
 				BA960C18214F9E060035965C /* Products */,
 				BA960C21214F9EC10035965C /* Frameworks */,
 			);
@@ -512,6 +572,7 @@
 				BAB68DC2216484860097BC77 /* Homework_1 */,
 				BA8D9696216A0B5A00A983DD /* Colors */,
 				BA6B5144216C7FF9008EDF7E /* Diffuse */,
+				BA6B515D216DDC78008EDF7E /* Materials */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -678,6 +739,23 @@
 			name = Diffuse;
 			productName = Diffuse;
 			productReference = BA6B5144216C7FF9008EDF7E /* Diffuse */;
+			productType = "com.apple.product-type.tool";
+		};
+		BA6B515C216DDC78008EDF7E /* Materials */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA6B5161216DDC78008EDF7E /* Build configuration list for PBXNativeTarget "Materials" */;
+			buildPhases = (
+				BA6B5159216DDC78008EDF7E /* Sources */,
+				BA6B515A216DDC78008EDF7E /* Frameworks */,
+				BA6B515B216DDC78008EDF7E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Materials;
+			productName = Materials;
+			productReference = BA6B515D216DDC78008EDF7E /* Materials */;
 			productType = "com.apple.product-type.tool";
 		};
 		BA72D351215B500F008B052C /* Shaders */ = {
@@ -848,6 +926,9 @@
 					BA6B5143216C7FF9008EDF7E = {
 						CreatedOnToolsVersion = 10.0;
 					};
+					BA6B515C216DDC78008EDF7E = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					BA72D351215B500F008B052C = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -906,6 +987,7 @@
 				BAB68DC1216484860097BC77 /* Homework_1 */,
 				BA8D9695216A0B5A00A983DD /* Colors */,
 				BA6B5143216C7FF9008EDF7E /* Diffuse */,
+				BA6B515C216DDC78008EDF7E /* Materials */,
 			);
 		};
 /* End PBXProject section */
@@ -929,6 +1011,16 @@
 				BA6B5157216C807A008EDF7E /* new_for_stb.cpp in Sources */,
 				BA6B5147216C7FF9008EDF7E /* main.cpp in Sources */,
 				BA6B5158216C807A008EDF7E /* glad.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA6B5159216DDC78008EDF7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA6B5160216DDC78008EDF7E /* main.cpp in Sources */,
+				BA6B5170216DDD2C008EDF7E /* glad.c in Sources */,
+				BA6B5171216DDD2C008EDF7E /* new_for_stb.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,6 +1184,49 @@
 					/usr/local/include,
 					/usr/local/Cellar/gl2w/2.1.0/lib,
 					"$(inherited)",
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BA6B5162216DDC78008EDF7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/include,
+					/usr/local/Cellar/gl2w/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA6B5163216DDC78008EDF7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/include,
+					/usr/local/Cellar/gl2w/2.1.0/lib,
 					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				LIBRARY_SEARCH_PATHS = (
@@ -1586,6 +1721,15 @@
 			buildConfigurations = (
 				BA6B5148216C7FF9008EDF7E /* Debug */,
 				BA6B5149216C7FF9008EDF7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA6B5161216DDC78008EDF7E /* Build configuration list for PBXNativeTarget "Materials" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA6B5162216DDC78008EDF7E /* Debug */,
+				BA6B5163216DDC78008EDF7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
