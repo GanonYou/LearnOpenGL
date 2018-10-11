@@ -34,6 +34,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>LightCasters.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>LightingMapsDiffuse.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -48,6 +53,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>MultipleLights.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 		<key>Shaders.xcscheme</key>
 		<dict>
