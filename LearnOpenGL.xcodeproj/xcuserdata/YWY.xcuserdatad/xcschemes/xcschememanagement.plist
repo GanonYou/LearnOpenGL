@@ -34,6 +34,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>LightingMapsDiffuse.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>Materials.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
