@@ -79,8 +79,6 @@ public:
         Position -= Right * velocity;
         if (direction == RIGHT)
         Position += Right * velocity;
-        //不能随意飞行
-        Position.y = 0.0f;
     }
     
     // Processes input received from a mouse input system. Expects the offset value in both the x and y direction.

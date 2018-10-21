@@ -404,6 +404,8 @@
 		BAC2863A217CB1480049A4AC /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
 		BAC2863C217CB1480049A4AC /* shader_textures.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader_textures.vs; sourceTree = "<group>"; };
 		BAC2863D217CB1480049A4AC /* shader_textures.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader_textures.fs; sourceTree = "<group>"; };
+		BAC28640217CB2C20049A4AC /* metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal.png; sourceTree = "<group>"; };
+		BAC28641217CB2C20049A4AC /* marble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = marble.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -949,6 +951,8 @@
 			isa = PBXGroup;
 			children = (
 				BAC2863B217CB1480049A4AC /* my_shaders */,
+				BAC28641217CB2C20049A4AC /* marble.jpg */,
+				BAC28640217CB2C20049A4AC /* metal.png */,
 				BAC28635217CB1480049A4AC /* awesomeface.png */,
 				BAC2863A217CB1480049A4AC /* camera.h */,
 				BAC28636217CB1480049A4AC /* container.jpg */,
