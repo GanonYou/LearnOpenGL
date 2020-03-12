@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 *.c linguist-language=C++
+*.cpp linguist-language=C++
+*.md linguist-language=C++
+*.h linguist-language=C++
+*.png linguist-language=C++
