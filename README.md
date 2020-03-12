@@ -1,9 +1,4 @@
 # LearnOpenGL
-## 1.记录学习OpenGL的过程
-环境配置：参考了
+## 记录学习OpenGL的过程
 
-https://blog.csdn.net/u013872561/article/details/79771293
-
-https://blog.csdn.net/sinat_14891561/article/details/74941333
-
-这两篇博文。
+学习笔记见https://blog.csdn.net/qq_32925781/article/details/82754588
